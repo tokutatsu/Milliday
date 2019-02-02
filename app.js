@@ -41,7 +41,7 @@ const tomorrowBirthdayCheck = () => {
     const date = tomorrow.getDate();
     let tweetText = '';
     for (const list of birthdayList) {
-        if (month != list[1] && date == list[2]) {
+        if (month == list[1] && date == list[2]) {
             tweetText = `明日${list[1]}月${list[2]}日は${list[0]}の誕生日です。\n`;
             tweet(tweetText);
         }
