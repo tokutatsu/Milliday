@@ -1,15 +1,17 @@
 # Milliday
 
 ## 概要
-twitterでミリシタの誕生日を呟くBotです。   
-一応汎用性を上げようとしたので、./data/birthday.jsonのデータを変更すれば対応可能です。
+twitterでミリマスのキャラの誕生日を呟くBotです。   
+一応汎用性を上げようとしたので、./data/birthday.jsonのデータを変更すれば対応可能となっています。
 
-インストール
+## モジュールのインストール
 ```
 npm install
 ```
 
-token.jsonを作成して、使用したいBotのトークンをjson形式で記述してください。
+## Botのトークンファイル作成
+
+token.jsonを作成して、以下のように使用したいBotのトークンをjson形式で記述してください。
 ```
 {
   "consumer_key": "***",
