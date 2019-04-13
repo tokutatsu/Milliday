@@ -48,6 +48,27 @@ const tomorrowBirthdayCheck = () => {
     }
 };
 
+const weekBirthdayCheck = () => {
+    const now = new Date();
+    let tweetText = tweetData.tweet.week;
+    for (let i = 0; i < 7; i++) {
+        const month = now.getMonth() + 1;
+        const date = now.getDate();
+        console.log(`${month} ${date}`);
+        for (const list of birthdayList) {
+            if (month == list[1] && date == list[2]) {
+                tweetText += `${list[0]} ${month}月${Number(list[2])}日\n`;
+            }
+        }
+        now.setDate(now.getDate() + 1);
+    }
+    if (tweetText == tweetData.tweet.week) {
+        tweet('今週誕生日のアイドルはいません\n');
+    } else {
+        tweet(tweetText);
+    }
+};
+
 const monthBirthdayCheck = () => {
     const now = new Date();
     const month = now.getMonth() + 1;
@@ -63,7 +84,8 @@ const monthBirthdayCheck = () => {
 //時間設定の順番(分、時、日、月、曜日)
 //毎日0時に実行
 job[0] = schedule.scheduleJob('0 0 * * *', todayBirthdayCheck);
-//毎日0時に実行
-job[1] = schedule.scheduleJob('0 0 * * *', tomorrowBirthdayCheck);
+//毎日23時30分に実行
+job[1] = schedule.scheduleJob('23 30 * * *', tomorrowBirthdayCheck);
 //毎週日曜日0時に実行
-job[2] = schedule.scheduleJob('0 0 * * 0', monthBirthdayCheck);
+job[2] = schedule.scheduleJob('0 0 * * 0', weekBirthdayCheck);
+job[3] = schedule.scheduleJob('0 0 * * 0', monthBirthdayCheck);
