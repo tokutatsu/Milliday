@@ -37,11 +37,13 @@ const todayBirthdayCheck = () => {
         if (month == list[1] && date == list[2]) {
             tweetText = `本日${month}月${date}日は${list[0]}の誕生日です。\n`
             tweet(tweetText);
+            changeIcon(list[0]);
         }
     }
     if (!tweetText) {
         tweetText = `本日${month}月${date}日が誕生日のアイドルはいません。\n`;
         tweet(tweetText);
+        changeIcon('default');
     }
 };
 
