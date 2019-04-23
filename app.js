@@ -85,7 +85,7 @@ const monthBirthdayCheck = () => {
 //毎日0時に実行
 job[0] = schedule.scheduleJob('0 0 * * *', todayBirthdayCheck);
 //毎日23時30分に実行
-job[1] = schedule.scheduleJob('23 30 * * *', tomorrowBirthdayCheck);
+job[1] = schedule.scheduleJob('30 23 * * *', tomorrowBirthdayCheck);
 //毎週日曜日0時に実行
 job[2] = schedule.scheduleJob('0 0 * * 0', weekBirthdayCheck);
 job[3] = schedule.scheduleJob('0 0 * * 0', monthBirthdayCheck);
