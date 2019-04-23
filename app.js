@@ -1,5 +1,6 @@
 const twitter = require('twitter');
 const schedule = require('node-schedule');
+const fs = require('fs');
 const app = new twitter(require('./token.json'));
 const birthdayList = require('./data/birthday.json');
 const tweetData = require('./data/tweet.json');
@@ -15,6 +16,17 @@ const tweet = (tweetText) => {
         }
     });
 };
+
+const changeIcon = (characterName) => {
+    const icon = fs.readFileSync(`./data/images/${characterName}.png`, { encoding: 'base64' });
+    app.post('account/update_profile_image', { image: icon }, (err, tweet) => {
+        if (!err) {
+            console.log(tweet)
+        } else {
+            console.log(err);
+        }
+    });
+}
 
 const todayBirthdayCheck = () => {
     const now = new Date();
