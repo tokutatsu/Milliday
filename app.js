@@ -18,7 +18,7 @@ const tweet = (tweetText) => {
 };
 
 const changeIcon = (characterName) => {
-    const icon = fs.readFileSync(`./data/images/${characterName}.png`, { encoding: 'base64' });
+    const icon = fs.readFileSync(`./data/icon/${characterName}.png`, { encoding: 'base64' });
     app.post('account/update_profile_image', { image: icon }, (err, tweet) => {
         if (!err) {
             console.log(tweet)
