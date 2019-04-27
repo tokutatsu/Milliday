@@ -1,5 +1,6 @@
 const twitter = require('twitter');
 const schedule = require('node-schedule');
+const fs = require('fs');
 const app = new twitter(require('./token.json'));
 const birthdayList = require('./data/birthday.json');
 const tweetData = require('./data/tweet.json');
@@ -16,6 +17,17 @@ const tweet = (tweetText) => {
     });
 };
 
+const changeIcon = (characterName) => {
+    const icon = fs.readFileSync(`./data/icon/${characterName}.png`, { encoding: 'base64' });
+    app.post('account/update_profile_image', { image: icon }, (err, tweet) => {
+        if (!err) {
+            console.log(tweet)
+        } else {
+            console.log(err);
+        }
+    });
+}
+
 const todayBirthdayCheck = () => {
     const now = new Date();
     const month = now.getMonth() + 1;
@@ -25,11 +37,13 @@ const todayBirthdayCheck = () => {
         if (month == list[1] && date == list[2]) {
             tweetText = `本日${month}月${date}日は${list[0]}の誕生日です。\n`
             tweet(tweetText);
+            changeIcon(list[3]);
         }
     }
     if (!tweetText) {
         tweetText = `本日${month}月${date}日が誕生日のアイドルはいません。\n`;
         tweet(tweetText);
+        changeIcon('default');
     }
 };
 
