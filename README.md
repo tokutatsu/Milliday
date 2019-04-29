@@ -28,6 +28,22 @@ twitterでミリマスのキャラの誕生日を呟くBotです。
 npm install
 ```
 
+## 実行
+
+実行する方法は以下の二通りがあります。
+
+### 通常実行
+```
+app.js
+```
+
+### foreverを用いてデーモン化
+```
+npm install -g forever // foreverのインストール
+forever start -w app.js // デーモン化
+```
+オプションの-wは、Node.jsファイルの中身を編集した際に自動的に検知して再実行してくれる監視オプションです。
+
 ## Botのトークンファイル作成
 
 token.jsonを作成して、以下のように使用したいBotのトークンをjson形式で記述してください。
@@ -40,13 +56,25 @@ token.jsonを作成して、以下のように使用したいBotのトークン�
 }
 ```
 
-## データの配置
+## パッケージの構成
+
+以下の構成を参考にして、icon、token.jsonを配置してください。  
+birthday.jsonも変更可能です。  
+birthday.jsonのデータは、[キャラクターの名前, 月, 日, iconファイル名(.pngは付けない)]とすれば良いです。  
+iconの画像データはPNG形式のみになっています。(変更するかもしれません)
 
 ```
-data/
-   ├ birthday.json  // 誕生日のデータ
-   ├ tweet.json  // ツイートのデータ
-   └ icon/ // ここにアイコンの画像を入れる
+Milliday/
+    ├ data/
+    |   ├ birthday.json  // 誕生日のデータ
+    |   ├ tweet.json  // ツイートのデータ
+    |   └ icon/ // ここにアイコンの画像を入れる
+    ├ app.js
+    ├ package-lock.json
+    ├ package.json
+    ├ token.json
+    ├ .gitignore
+    └ README.md
 ```
 
 ## BotのURL
