@@ -4,7 +4,7 @@ const fs = require('fs');
 const app = new twitter(require('./token.json'));
 const birthdayList = require('./data/birthday.json');
 const tweetData = require('./data/tweet.json');
-const tag = tweetData.tag;
+let tag = tweetData.tag;
 let job = [];
 
 const tweet = (tweetText) => {
@@ -36,6 +36,7 @@ const todayBirthdayCheck = () => {
     for (const list of birthdayList) {
         if (month == list[1] && date == list[2]) {
             tweetText = `本日${month}月${date}日は${list[0]}の誕生日です。\n`
+            tag += `#${list[0]}生誕祭`;
             tweet(tweetText);
             changeIcon(list[3]);
         }
