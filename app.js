@@ -38,6 +38,7 @@ const todayBirthdayCheck = () => {
             tweetText = `本日${month}月${date}日は${list[0]}の誕生日です。\n`
             tag += `#${list[0]}生誕祭`;
             tweet(tweetText);
+            tag = tweetData.tag;
             changeIcon(list[3]);
         }
     }
