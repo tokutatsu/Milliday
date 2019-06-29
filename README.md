@@ -2,7 +2,7 @@
 
 ## 概要
 
-twitterでミリマスのキャラの誕生日を呟くBotです。  
+Twitterでミリマスのキャラの誕生日を呟くBotです。  
 
 ## 機能
 
@@ -34,7 +34,7 @@ npm install
 
 ### 通常実行
 ```
-app.js
+node app.js
 ```
 
 ### foreverを用いてデーモン化
