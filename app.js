@@ -105,3 +105,5 @@ job[1] = schedule.scheduleJob('30 23 * * *', tomorrowBirthdayCheck);
 //毎週日曜日0時に実行
 job[2] = schedule.scheduleJob('0 0 * * 0', weekBirthdayCheck);
 job[3] = schedule.scheduleJob('0 0 * * 0', monthBirthdayCheck);
+//月初め(1日)の0時に実行
+job[4] = schedule.scheduleJob('0 0 1 * *', monthBirthdayCheck);
