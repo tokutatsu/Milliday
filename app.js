@@ -88,7 +88,7 @@ const weekBirthdayCheck = () => {
 const monthBirthdayCheck = () => {
     const now = new Date();
     const month = now.getMonth() + 1;
-    let tweetText = tweetData.tweet.month;
+    let tweetText = `${month}${tweetData.tweet.month}`;
     for (const list of birthdayList) {
         if (month == list[1]) {
             tweetText += `${list[0]} ${month}月${Number(list[2])}日\n`;
