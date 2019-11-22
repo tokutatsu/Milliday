@@ -51,8 +51,8 @@ token.jsonを作成して、以下のように使用したいBotのトークン�
 {
   "consumer_key": "***",
   "consumer_secret": "***",
-  "access_token_key" "***"
-  "access_token_secret" "***"
+  "access_token_key": "***",
+  "access_token_secret": "***"
 }
 ```
 
