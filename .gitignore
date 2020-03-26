@@ -1,4 +1,11 @@
+# module
 node_modules
-token.json
+
 test
+
+# image data
 icon
+
+# token
+token.json
+test_token.json
