@@ -1,6 +1,8 @@
 const twitter = require('twitter');
 const fs = require('fs');
 const bot = new twitter(require('../token/token.json'));
+const tweetData = require('../data/tweet.json');
+let tag = tweetData.tag;
 
 const tweet = (tweetText) => {
     bot.post('statuses/update', { status: `${tweetText}${tag}` }, (err, tweet, res) => {
@@ -9,6 +11,7 @@ const tweet = (tweetText) => {
         } else {
             console.log(err);
         }
+        console.log({ statusCode: res.statusCode });
     });
 };
 
@@ -20,6 +23,7 @@ const changeIcon = (characterName) => {
         } else {
             console.log(err);
         }
+        console.log({ statusCode: res.statusCode });
     });
 };
 
