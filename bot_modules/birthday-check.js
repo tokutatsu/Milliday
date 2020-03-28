@@ -43,7 +43,6 @@ const weekBirthdayCheck = () => {
     for (let i = 0; i < 7; i++) {
         const month = now.getMonth() + 1;
         const date = now.getDate();
-        // console.log(`${month} ${date}`);
         for (const list of birthdayList) {
             if (month == list[1] && date == list[2]) {
                 tweetText += `${list[0]} ${month}月${Number(list[2])}日\n`;
