@@ -62,26 +62,26 @@ describe('weekBirthdayCheck()', () => {
         setTimeout(() => {
             expect(log[1].statusCode).to.equal(200);
             done();
-        }, 3000);
+        }, 2000);
     });
 });
 
-// describe('monthBirthdayCheck()', () => {
-//     let log = [];
-//     beforeEach(() => {
-//         originalConsoleLog = console.log;
-//         console.log = (message) => {
-//             log[log.length] = message;
-//         };
-//     });
-//     afterEach(() => {
-//         console.log = originalConsoleLog;
-//     });
-//     it('アイコンを変えることができたか', (done) => {
-//         bot.changeIcon('test')
-//         setTimeout(() => {
-//             expect(log[1].statusCode).to.equal(200);
-//             done();
-//         }, 5000);
-//     });
-// });
+describe('monthBirthdayCheck()', () => {
+    let log = [];
+    before(() => {
+        originalConsoleLog = console.log;
+        console.log = (message) => {
+            log[log.length] = message;
+        };
+        check.monthBirthdayCheck();
+    });
+    after(() => {
+        console.log = originalConsoleLog;
+    });
+    it('ツイートすることができたか', (done) => {
+        setTimeout(() => {
+            expect(log[1].statusCode).to.equal(200);
+            done();
+        }, 2000);
+    });
+});
