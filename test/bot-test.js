@@ -40,6 +40,6 @@ describe('changeIcon()', () => {
         setTimeout(() => {
             expect(log[1].statusCode).to.equal(200);
             done();
-        }, 5000);
+        }, 6000);
     });
 });
